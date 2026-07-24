@@ -7,12 +7,17 @@ const startFunc = ({ fileContent, parseRegex, searchRegex,
 
     if (showLog) console.log(`${packageJson.name} - imports : `, fileContent, parseRegex, searchRegex);
 
+    if (showLog?.keysOnly) console.log(`${packageJson.name}-start`);
+    if (showLog?.withValues) console.log(`${packageJson.name}-inputs : `, fileContent, parseRegex, searchRegex);
+
     const importLines = extractLines({
         fileContent, parseRegex, searchRegex,
         showLog: showLogStep1
     });
 
     if (showLog) console.log(`${packageJson.name} - exports : `, importLines);
+    if (showLog?.keysOnly) console.log(`${packageJson.name}-end`);
+    if (showLog?.withValues) console.log(`${packageJson.name}-outputs : `, importLines);
 
     return importLines;
 
