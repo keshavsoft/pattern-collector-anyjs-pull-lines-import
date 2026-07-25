@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 import defaultFunc from '../../index.js';
 
-const filePath = path.join(process.cwd(), "routes.js");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const filePath = path.join(__dirname, "routes.js");
 
 const fileContent = fs.readFileSync(filePath, 'utf8');
 
